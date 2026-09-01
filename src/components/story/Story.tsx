@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 
 import { ContactEmail } from "@/components/profile/ContactEmail";
-import { story } from "@/data/profile";
+import { story, yearsShipping } from "@/data/profile";
 
 export function Story() {
   return (
@@ -18,7 +18,7 @@ export function Story() {
               : "text-[17px] leading-[1.7] text-body text-pretty"
           }
         >
-          {withAthenixLink(paragraph)}
+          {withAthenixLink(paragraph.replace("{years}", String(yearsShipping)))}
         </p>
       ))}
       <div className="flex pt-3">
