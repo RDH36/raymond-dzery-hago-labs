@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Design canvas: keep the source artboards, skip the seeded output and the
+# image crops (both regenerable from design/build.py and screenshoot-app).
+design/portfolio-dzeryhago-directions.html
+design/shots/

@@ -1,0 +1,138 @@
+{
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Portfolio"
+    },
+    {
+      "id": "page-2",
+      "name": "Sketches A B C"
+    }
+  ],
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "Closed — all rows collapsed",
+      "page": "page-1",
+      "x": 0,
+      "y": 0,
+      "w": 680,
+      "h": 1520
+    },
+    {
+      "file": "Expanded.dc.html",
+      "title": "Open — Mitsitsy (published)",
+      "page": "page-1",
+      "x": 800,
+      "y": 0,
+      "w": 680,
+      "h": 2040
+    },
+    {
+      "file": "OpenSoon.dc.html",
+      "title": "Open — Monster Cannon (not out yet)",
+      "page": "page-1",
+      "x": 1600,
+      "y": 0,
+      "w": 680,
+      "h": 2040
+    },
+    {
+      "file": "Mobile.dc.html",
+      "title": "390px — open",
+      "page": "page-1",
+      "x": 2400,
+      "y": 0,
+      "w": 390,
+      "h": 2320
+    },
+    {
+      "file": "DirectionB.dc.html",
+      "title": "B — Printed index",
+      "page": "page-2",
+      "x": 0,
+      "y": 0,
+      "w": 680,
+      "h": 880
+    },
+    {
+      "file": "DirectionC.dc.html",
+      "title": "C — Dark showcase",
+      "page": "page-2",
+      "x": 780,
+      "y": 0,
+      "w": 680,
+      "h": 880
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-assets",
+      "page": "page-1",
+      "x": 0,
+      "y": -460,
+      "w": 780,
+      "text": "Icônes reprises dans les repos, comme demandé — et j'avais eu tort.\n\nLes icônes que j'avais tirées des fiches Play Store étaient celles des apps RECOMMANDÉES en bas de page, pas les tiennes : un billet bleu pour Mitsitsy, une couronne rouge pour Clearway. Rien à voir. Les bonnes sont dans tes repos.\n\nCe qui m'avait égaré : dans money-tracking et memory-race, assets/icon.png est bien resté l'icône Expo par défaut. Mais app.json ne pointe pas dessus — il pointe sur adaptive-icon.png, et c'est celle-là qui est la vraie.\n\n· Mitsitsy — money-tracking/assets/images/adaptive-icon.png, aplatie sur le #FFFFFF de ton app.json\n· Flipia — memory-race/assets/adaptive-icon.png\n· Clearway — Clearway/assets/icon.png\n· Monster Cannon — screenshoot-app/exports/monster-cannon/icon-512-bg.png"
+    },
+    {
+      "id": "note-flipia",
+      "page": "page-1",
+      "x": 0,
+      "y": 1600,
+      "w": 780,
+      "text": "Flipia n'est pas « soon » : elle est publiée.\n\ncom.rdh36.flipia répond, sous le nom « Flipia: Memory Duel & Powers ». J'ai donc retiré la mention et écrit sa description à partir de ton ASO-GOOGLE-PLAY.md et de ton README : duel, pouvoirs, classement, bots.\n\nIl ne reste plus aucun placeholder dans la liste des projets. Le seul de la page est le détail jeu vidéo, dans « Why I build » — et celui-là, seul toi peux l'écrire."
+    },
+    {
+      "id": "note-ux",
+      "page": "page-1",
+      "x": 800,
+      "y": -460,
+      "w": 680,
+      "text": "Le clic ne change pas de page : la ligne s'ouvre sur place.\n\n1. Accordéon, une seule ligne ouverte à la fois.\n2. Toute la ligne est la cible du clic, pas seulement le chevron.\n3. Le chevron dit l'état avant le clic.\n4. Les captures défilent horizontalement DANS la ligne ; la page ne défile jamais latéralement.\n5. Ouverture instantanée si prefers-reduced-motion est actif.\n6. Entrée ou Espace au clavier, aria-expanded qui suit, focus qui reste sur la ligne."
+    },
+    {
+      "id": "note-soon",
+      "page": "page-1",
+      "x": 1600,
+      "y": -460,
+      "w": 680,
+      "text": "Le cas « pas encore sorti », ouvert.\n\nMonster Cannon n'a pas de bouton d'installation — à la place, une phrase honnête et le lien vers le site du jeu. Les captures, elles, sont là : c'est justement ce qui donne envie d'attendre.\n\nLe jour où tu publies, tu passes status de soon à live et tu ajoutes l'URL. Le bouton apparaît, la phrase disparaît, rien d'autre à toucher."
+    },
+    {
+      "id": "note-contact",
+      "page": "page-1",
+      "x": 0,
+      "y": -700,
+      "w": 780,
+      "text": "Contact remonté sous le profil : l'e-mail d'abord, plus gros que les réseaux. Quelqu'un qui arrive de ta bio TikTok l'a sous les yeux sans scroller. En bas il ne reste que « By Raymond Dzery Hago »."
+    },
+    {
+      "id": "note-story",
+      "page": "page-1",
+      "x": 0,
+      "y": 1900,
+      "w": 780,
+      "text": "« Why I build ».\n\nAthenix Technology est mentionné et lié vers athenix-technology.com, puisque tu y travailles toujours. Je décris le poste par ce que fait la boîte — web, mobile et IA pour ses clients — sans en faire une ligne de CV.\n\nIl ne reste qu'un crochet sur toute la page : le détail concret du premier paragraphe. Quel jeu, quelle console, quel âge. C'est la seule phrase que je ne peux pas écrire à ta place."
+    },
+    {
+      "id": "note-mobile",
+      "page": "page-1",
+      "x": 2400,
+      "y": -460,
+      "w": 390,
+      "text": "390px, une ligne ouverte. Le cas le plus tendu : quatre lignes plus une fiche. Les captures gardent leur largeur et défilent."
+    },
+    {
+      "id": "note-sketches",
+      "page": "page-2",
+      "x": 0,
+      "y": -180,
+      "w": 900,
+      "text": "Esquisses B et C, gardées pour référence. Tu as choisi A."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}
