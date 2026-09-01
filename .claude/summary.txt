@@ -1,0 +1,5 @@
+Photo recadree et posee sur la page
++ Recadrage carre 530px : la bouteille est hors champ, le bras leve reste
++ Le filigrane REDMI NOTE 8 disparait avec le recadrage
+~ Meme forme que les icones d'apps, 64px arrondi
+! Dernier crochet : le detail jeu video du premier paragraphe
