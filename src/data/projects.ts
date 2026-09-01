@@ -25,7 +25,6 @@ export type Project = {
   /** Absent while status is "soon" — the install button appears with it. */
   playStoreUrl?: string;
   siteUrl?: string;
-  /** Swap the Vercel URLs for the dzeryhago.com subdomains once they exist. */
   extraLinks?: ProjectLink[];
   about: string;
   highlights: string[];
@@ -84,9 +83,9 @@ export const projects: Project[] = [
     status: "live",
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=com.rdh36.clearway",
-    siteUrl: "https://clearway-app.dzeryhago.com",
+    siteUrl: "https://clearway.dzeryhago.com",
     extraLinks: [
-      { label: "Privacy policy", href: "https://clearway-app.dzeryhago.com/privacy" },
+      { label: "Privacy policy", href: "https://clearway.dzeryhago.com/privacy" },
     ],
     about:
       "A calm companion for quitting vaping, not a coach shouting at you. It counts the days you have cleared and the money back in your pocket, and gives you something to do when a craving hits.",
