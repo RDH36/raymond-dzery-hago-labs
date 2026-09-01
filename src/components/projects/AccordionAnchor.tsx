@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
+import { track } from "@/components/analytics/track";
+
 /**
  * Keeps the clicked row's title exactly where it was on screen.
  *
@@ -20,6 +22,11 @@ export function AccordionAnchor({ children }: { children: React.ReactNode }) {
       const target = event.target as HTMLElement | null;
       const summary = target?.closest("summary");
       if (!summary || !node.contains(summary)) return;
+
+      const row = summary.closest("details");
+      if (row && !row.open) {
+        track("project_opened", { project: row.id });
+      }
 
       const before = summary.getBoundingClientRect().top;
       const reduced = window.matchMedia(

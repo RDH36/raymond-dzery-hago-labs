@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, IBM_Plex_Sans } from "next/font/google";
 
+import { PostHogProvider } from "@/components/analytics/PostHogProvider";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { profile } from "@/data/profile";
 import { siteGraph } from "@/lib/jsonld";
@@ -81,6 +82,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
+        <PostHogProvider />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteGraph()) }}

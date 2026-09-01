@@ -19,6 +19,7 @@ export function ProjectList() {
         href="https://github.com/RDH36?tab=repositories"
         target="_blank"
         rel="noopener"
+        data-track="github_click"
         className="self-start text-[16px] text-slate underline decoration-hairline underline-offset-[3px] hover:text-ink hover:decoration-seal"
       >
         More projects on GitHub

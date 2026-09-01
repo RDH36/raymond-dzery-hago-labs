@@ -4,6 +4,10 @@ import { ProjectList } from "@/components/projects/ProjectList";
 import { Story } from "@/components/story/Story";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
+/* The footer year is rendered at build time, so the page re-generates once a
+   day. Without this it would still read 2026 next January. */
+export const revalidate = 86400;
+
 function Rule() {
   return <hr className="h-px w-full border-0 bg-rule" />;
 }

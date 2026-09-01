@@ -18,7 +18,13 @@ export function ProjectDetail({ project }: { project: Project }) {
       <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
         {project.playStoreUrl ? (
           <Button asChild>
-            <a href={project.playStoreUrl} target="_blank" rel="noopener">
+            <a
+              href={project.playStoreUrl}
+              target="_blank"
+              rel="noopener"
+              data-track="play_store_click"
+              data-project={project.slug}
+            >
               Get it on Google Play
             </a>
           </Button>
@@ -31,6 +37,8 @@ export function ProjectDetail({ project }: { project: Project }) {
             href={link.href}
             target="_blank"
             rel="noopener"
+            data-track="project_link_click"
+            data-project={project.slug}
             className={linkClass}
           >
             {link.label}

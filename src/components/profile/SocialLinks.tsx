@@ -11,6 +11,8 @@ export function SocialLinks() {
             href={link.href}
             rel="me noopener"
             target="_blank"
+            data-track="social_click"
+            data-project={link.label}
             className="underline decoration-faint underline-offset-[3px] hover:text-ink hover:decoration-seal"
           >
             {link.label}
