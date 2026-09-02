@@ -23,7 +23,7 @@ export const profile = {
 export const links: ProfileLink[] = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/raymond-dzery-hago-25013221b/" },
   { label: "GitHub", href: "https://github.com/RDH36" },
-  { label: "X", href: "https://x.com/rdzeryhago" },
+  { label: "itch.io", href: "https://rdh36.itch.io/" },
   { label: "Instagram", href: "https://www.instagram.com/raymonddzeryhago/" },
   { label: "YouTube", href: "https://www.youtube.com/@rdh2236" },
   { label: "TikTok", href: "https://www.tiktok.com/@r3d6h" },
