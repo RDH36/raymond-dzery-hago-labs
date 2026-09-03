@@ -40,7 +40,7 @@ export const stack = {
   lines: [
     "Websites in Next.js and TypeScript, styled with Tailwind and deployed on Vercel.",
     "Mobile apps in React Native and Expo, styled with NativeWind so the web habits carry over.",
-    "Games in Unity, with the art drawn pixel by pixel.",
+    "Games in Unity and C#, with the art drawn pixel by pixel.",
     "PostHog in all of them, because shipping without knowing what people do is guessing.",
   ],
 } as const;
