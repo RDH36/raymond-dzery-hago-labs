@@ -1,6 +1,5 @@
-import { Fragment } from "react";
-
 import { ContactEmail } from "@/components/profile/ContactEmail";
+import { withLinks } from "@/components/story/ProseLinks";
 import { story, yearsShipping } from "@/data/profile";
 
 export function Story() {
@@ -18,33 +17,16 @@ export function Story() {
               : "text-[17px] leading-[1.7] text-body text-pretty"
           }
         >
-          {withAthenixLink(paragraph.replace("{years}", String(yearsShipping)))}
+          {withLinks(
+            paragraph.replace("{years}", String(yearsShipping)),
+            story.links,
+            "story_link_click",
+          )}
         </p>
       ))}
       <div className="flex pt-3">
         <ContactEmail />
       </div>
     </section>
-  );
-}
-
-/** The middle paragraph carries an {athenix} slot rather than raw markup. */
-function withAthenixLink(paragraph: string) {
-  const [before, after] = paragraph.split("{athenix}");
-  if (after === undefined) return paragraph;
-
-  return (
-    <Fragment>
-      {before}
-      <a
-        href={story.athenix.href}
-        target="_blank"
-        rel="noopener"
-        className="font-semibold text-ink underline decoration-hairline underline-offset-[3px] hover:decoration-seal"
-      >
-        {story.athenix.label}
-      </a>
-      {after}
-    </Fragment>
   );
 }

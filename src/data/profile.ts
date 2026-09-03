@@ -67,13 +67,14 @@ export const yearsShipping = new Date().getFullYear() - SHIPPING_SINCE;
 
 export const story = {
   heading: "Why I build",
+  /** Same bracket convention as the tools above. */
+  links: {
+    "Inclusiv Academy": "https://www.inclusiv.mg/",
+    "Athenix Technology": "https://www.athenix-technology.com/",
+  } as Record<string, string>,
   paragraphs: [
     "I got into computers because of video games. I wanted to know how the thing on the screen was made, and then I wanted to make one myself.",
-    "That curiosity turned into the job. I studied at IESTIME Antaninandro and have been shipping web and mobile products for {years} years. Today that is at {athenix}, building web, mobile and AI products for their clients. On my own time I keep going back to games: Monster Cannon and Flipia are that itch, pixel art included.",
+    "That curiosity turned into a job. The professional training at [Inclusiv Academy] is what made it one, and I have been shipping web and mobile products for {years} years since. Today that is at [Athenix Technology], building web, mobile and AI products for their clients. On my own time I keep going back to games: Monster Cannon and Flipia are that itch, pixel art included.",
     "Everything I build carries a bit of who I am.",
   ],
-  athenix: {
-    label: "Athenix Technology",
-    href: "https://www.athenix-technology.com/",
-  },
 } as const;

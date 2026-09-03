@@ -1,5 +1,4 @@
-import { Fragment } from "react";
-
+import { withLinks } from "@/components/story/ProseLinks";
 import { stack } from "@/data/profile";
 
 export function Stack() {
@@ -11,32 +10,10 @@ export function Stack() {
       <ul className="flex flex-col gap-2.5">
         {stack.lines.map((line) => (
           <li key={line} className="text-[17px] leading-[1.65] text-body">
-            {withToolLinks(line)}
+            {withLinks(line, stack.tools, "tech_click")}
           </li>
         ))}
       </ul>
     </section>
   );
-}
-
-/** Turns "[Next.js] and [Expo]" into links, leaving the prose around them. */
-function withToolLinks(line: string) {
-  return line.split(/\[([^\]]+)\]/).map((part, index) => {
-    const href = index % 2 === 1 ? stack.tools[part] : undefined;
-    if (!href) return <Fragment key={index}>{part}</Fragment>;
-
-    return (
-      <a
-        key={index}
-        href={href}
-        target="_blank"
-        rel="noopener"
-        data-track="tech_click"
-        data-project={part}
-        className="font-semibold text-ink underline decoration-hairline underline-offset-[3px] hover:decoration-seal"
-      >
-        {part}
-      </a>
-    );
-  });
 }
