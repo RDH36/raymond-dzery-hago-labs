@@ -40,7 +40,7 @@ function withAthenixLink(paragraph: string) {
         href={story.athenix.href}
         target="_blank"
         rel="noopener"
-        className="underline decoration-[#b9bdc3] underline-offset-[3px] hover:decoration-seal"
+        className="font-semibold text-ink underline decoration-hairline underline-offset-[3px] hover:decoration-seal"
       >
         {story.athenix.label}
       </a>
