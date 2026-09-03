@@ -33,6 +33,18 @@ export const links: ProfileLink[] = [
   },
 ];
 
+/** Prose rather than a list of names: the brief rules out a stack row, and
+    what matters is what each tool is for, not that it exists. */
+export const stack = {
+  heading: "What I build with",
+  lines: [
+    "Websites in Next.js and TypeScript, styled with Tailwind and deployed on Vercel.",
+    "Mobile apps in React Native and Expo, styled with NativeWind so the web habits carry over.",
+    "Games in Unity, with the art drawn pixel by pixel.",
+    "PostHog in all of them, because shipping without knowing what people do is guessing.",
+  ],
+} as const;
+
 /** Counted, not written down, so the line does not quietly go stale. */
 const SHIPPING_SINCE = 2020;
 

@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { Profile } from "@/components/profile/Profile";
 import { ProjectList } from "@/components/projects/ProjectList";
+import { Stack } from "@/components/story/Stack";
 import { Story } from "@/components/story/Story";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
@@ -22,6 +23,8 @@ export default function Home() {
         <Profile />
         <Rule />
         <ProjectList />
+        <Rule />
+        <Stack />
         <Rule />
         <Story />
         <Rule />
