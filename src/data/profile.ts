@@ -37,11 +37,25 @@ export const links: ProfileLink[] = [
     what matters is what each tool is for, not that it exists. */
 export const stack = {
   heading: "What I build with",
+  /** Names in square brackets are rendered as links to the tool's own site. */
+  tools: {
+    "Next.js": "https://nextjs.org",
+    TypeScript: "https://www.typescriptlang.org",
+    Tailwind: "https://tailwindcss.com",
+    Vercel: "https://vercel.com",
+    "React Native": "https://reactnative.dev",
+    Expo: "https://expo.dev",
+    NativeWind: "https://www.nativewind.dev",
+    Unity: "https://unity.com",
+    "C#": "https://learn.microsoft.com/dotnet/csharp/",
+    Aseprite: "https://www.aseprite.org",
+    PostHog: "https://posthog.com",
+  } as Record<string, string>,
   lines: [
-    "Websites in Next.js and TypeScript, styled with Tailwind and deployed on Vercel.",
-    "Mobile apps in React Native and Expo, styled with NativeWind so the web habits carry over.",
-    "Games in Unity and C#, with the art drawn pixel by pixel.",
-    "PostHog in all of them, because shipping without knowing what people do is guessing.",
+    "Websites in [Next.js] and [TypeScript], styled with [Tailwind] and deployed on [Vercel].",
+    "Mobile apps in [React Native] and [Expo], styled with [NativeWind] so the web habits carry over.",
+    "Games in [Unity] and [C#], with the pixel art drawn in [Aseprite].",
+    "[PostHog] in all of them, because shipping without knowing what people do is guessing.",
   ],
 } as const;
 
