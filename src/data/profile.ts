@@ -50,12 +50,13 @@ export const stack = {
     "C#": "https://learn.microsoft.com/dotnet/csharp/",
     Aseprite: "https://www.aseprite.org",
     PostHog: "https://posthog.com",
+    Sentry: "https://sentry.io",
   } as Record<string, string>,
   lines: [
     "Websites in [Next.js] and [TypeScript], styled with [Tailwind] and deployed on [Vercel].",
     "Mobile apps in [React Native] and [Expo], styled with [NativeWind] so the web habits carry over.",
     "Games in [Unity] and [C#], with the pixel art drawn in [Aseprite].",
-    "[PostHog] in all of them, because shipping without knowing what people do is guessing.",
+    "[PostHog] and [Sentry] in all of them, because shipping without knowing what people do, or what breaks, is guessing.",
   ],
 } as const;
 
