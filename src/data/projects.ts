@@ -136,7 +136,9 @@ export const projects: Project[] = [
     thumbnail: "/icons/monster-cannon.png",
     attributes: ["Android", "Offline", "Free"],
     schemaCategory: "GameApplication",
-    status: "soon",
+    status: "live",
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.rdh36.mosntercannon",
     siteUrl: "https://monstercannon.dzeryhago.com",
     about:
       "Aim, bounce, destroy. You load the cannon and set the angle; the trajectory line shows where the shot lands after the bounces. Waves never stop, and every round hands you a choice of upgrades.",
