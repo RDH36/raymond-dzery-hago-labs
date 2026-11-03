@@ -1,6 +1,6 @@
 import { AccordionAnchor } from "@/components/projects/AccordionAnchor";
 import { ProjectRow } from "@/components/projects/ProjectRow";
-import { projects } from "@/data/projects";
+import { alsoLinks, projects } from "@/data/projects";
 
 export function ProjectList() {
   return (
@@ -15,6 +15,22 @@ export function ProjectList() {
           ))}
         </ul>
       </AccordionAnchor>
+      <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[16px]">
+        <span className="text-[14px] text-muted">Also</span>
+        {alsoLinks.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            target="_blank"
+            rel="noopener"
+            data-track="also_link_click"
+            data-project={link.label}
+            className="whitespace-nowrap text-slate underline decoration-hairline underline-offset-[3px] hover:text-ink hover:decoration-seal"
+          >
+            {link.label}
+          </a>
+        ))}
+      </p>
       <a
         href="https://github.com/RDH36?tab=repositories"
         target="_blank"

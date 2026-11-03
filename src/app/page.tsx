@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Footer } from "@/components/Footer";
 import { Profile } from "@/components/profile/Profile";
 import { ProjectList } from "@/components/projects/ProjectList";
@@ -27,6 +29,20 @@ export default function Home() {
         <Stack />
         <Rule />
         <Story />
+        <Rule />
+        <section aria-labelledby="blog" className="flex flex-col gap-3">
+          <h2 id="blog" className="font-display text-[21px] font-semibold text-ink">
+            <Link
+              href="/blog"
+              className="underline decoration-hairline underline-offset-[3px] hover:decoration-seal"
+            >
+              Blog
+            </Link>
+          </h2>
+          <p className="text-[17px] leading-[1.7] text-body text-pretty">
+            What I&apos;m building, what breaks, and the real numbers.
+          </p>
+        </section>
         <Rule />
         <Footer />
       </main>

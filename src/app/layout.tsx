@@ -15,8 +15,8 @@ const plex = IBM_Plex_Sans({
   variable: "--font-plex",
 });
 
-/* The display face of Clearway's own site — the portfolio inherits the type
-   voice of the products it lists. */
+/* The display face: the portfolio inherits the type voice of the products it
+   lists. */
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   weight: ["600", "700"],
@@ -25,7 +25,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 const description =
-  "Raymond Dzery Hago designs, builds and ships mobile apps, games and websites from Antananarivo, Madagascar. Mitsitsy, Clearway, Flipia and Monster Cannon.";
+  "Raymond Dzery Hago designs, builds and ships mobile apps, games and websites from Antananarivo, Madagascar. Mitsitsy, Hifety and Monster Cannon.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),

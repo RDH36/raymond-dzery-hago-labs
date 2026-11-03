@@ -28,9 +28,19 @@ export function ProjectDetail({ project }: { project: Project }) {
               Get it on Google Play
             </a>
           </Button>
-        ) : (
-          <span className="text-[15px] text-muted">Not on Google Play yet.</span>
-        )}
+        ) : project.primaryAction ? (
+          <Button asChild>
+            <a
+              href={project.primaryAction.href}
+              target="_blank"
+              rel="noopener"
+              data-track="primary_action_click"
+              data-project={project.slug}
+            >
+              {project.primaryAction.label}
+            </a>
+          </Button>
+        ) : null}
         {secondary.map((link) => (
           <a
             key={link.href}
