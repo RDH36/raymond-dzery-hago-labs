@@ -18,7 +18,13 @@ function Rule() {
 export default function Home() {
   return (
     <div className="mx-auto w-full max-w-[680px] px-6 pb-14 pt-6 sm:px-10">
-      <div className="flex justify-end">
+      <div className="flex items-center justify-end gap-4">
+        <Link
+          href="/blog"
+          className="text-[15px] text-slate underline decoration-hairline underline-offset-[3px] hover:text-ink hover:decoration-seal"
+        >
+          Blog
+        </Link>
         <ThemeToggle />
       </div>
       <main className="flex flex-col gap-10 pt-4">
@@ -29,20 +35,6 @@ export default function Home() {
         <Stack />
         <Rule />
         <Story />
-        <Rule />
-        <section aria-labelledby="blog" className="flex flex-col gap-3">
-          <h2 id="blog" className="font-display text-[21px] font-semibold text-ink">
-            <Link
-              href="/blog"
-              className="underline decoration-hairline underline-offset-[3px] hover:decoration-seal"
-            >
-              Blog
-            </Link>
-          </h2>
-          <p className="text-[17px] leading-[1.7] text-body text-pretty">
-            What I&apos;m building, what breaks, and the real numbers.
-          </p>
-        </section>
         <Rule />
         <Footer />
       </main>
