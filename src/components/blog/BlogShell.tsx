@@ -1,39 +1,30 @@
-import Link from "next/link";
+import { Header } from "@/components/home/Header";
+import { HomeFooter } from "@/components/home/HomeFooter";
+import { MobileBar } from "@/components/home/MobileBar";
+import type { Section } from "@/components/blog/article/sections";
+import "@/app/home.css";
+import "@/app/blog/blog.css";
 
-import { Footer } from "@/components/Footer";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
-
-const navClass =
-  "text-[15px] text-slate underline decoration-hairline underline-offset-[3px] hover:text-ink hover:decoration-seal";
-
-/** The home page's column, for the pages that hang off it. */
+/** The home page's frame (header, footer, thumb bar) around a single reading
+    column. `.d2` scopes the blog rules on top of the home page's `.p1`. */
 export function BlogShell({
-  showBlogLink = false,
+  page,
+  sections,
   children,
 }: {
-  showBlogLink?: boolean;
+  page: "blog" | "legal";
+  sections?: Section[];
   children: React.ReactNode;
 }) {
   return (
-    <div className="mx-auto w-full max-w-[680px] px-6 pb-14 pt-6 sm:px-10">
-      <div className="flex items-center justify-between gap-4">
-        <nav aria-label="Main" className="flex gap-4">
-          <Link href="/" className={navClass}>
-            Home
-          </Link>
-          {showBlogLink ? (
-            <Link href="/blog" className={navClass}>
-              Blog
-            </Link>
-          ) : null}
-        </nav>
-        <ThemeToggle />
-      </div>
-      <main className="flex flex-col gap-10 pt-4">
-        {children}
-        <hr className="h-px w-full border-0 bg-rule" />
-        <Footer />
-      </main>
+    <div className="p1 d2" id="top">
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+      <Header page={page} />
+      <main id="main">{children}</main>
+      <HomeFooter />
+      <MobileBar page={page} sections={sections} />
     </div>
   );
 }

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { ContentsSheet } from "@/components/blog/article/ContentsSheet";
+import type { Section } from "@/components/blog/article/sections";
 import { ThemeButton } from "@/components/theme/ThemeButton";
 
 type Cta = { label: string; href: string };
@@ -10,8 +12,16 @@ type Cta = { label: string; href: string };
 /**
  * Bottom bar under 900 px. The action button shows only while the middle of
  * the screen is inside a project section (section[data-cta]).
+ * On the blog and legal pages (`page`), Home and Blog are real routes, and an
+ * article passes its `sections` to get the "Contents" sheet.
  */
-export function MobileBar() {
+export function MobileBar({
+  page,
+  sections,
+}: {
+  page?: "blog" | "legal";
+  sections?: Section[];
+}) {
   const [cta, setCta] = useState<Cta | null>(null);
   const hits = useRef(new Map<Element, boolean>());
 
@@ -35,8 +45,11 @@ export function MobileBar() {
 
   return (
     <nav className="bar" aria-label="Quick actions">
-      <a href="#top">Home</a>
-      <Link href="/blog">Blog</Link>
+      {page ? <Link href="/">Home</Link> : <a href="#top">Home</a>}
+      <Link href="/blog" aria-current={page === "blog" ? "page" : undefined}>
+        Blog
+      </Link>
+      {sections ? <ContentsSheet sections={sections} /> : null}
       <ThemeButton />
       {cta && (
         <a

@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    ...["/blog", "/blog/how-i-built-my-guild"].map((path) => ({
+    ...["/blog", "/blog/how-i-built-my-guild", "/privacy", "/terms"].map((path) => ({
       url: new URL(path, profile.siteUrl).toString(),
       lastModified: new Date(),
       changeFrequency: "monthly" as const,

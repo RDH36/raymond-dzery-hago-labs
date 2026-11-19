@@ -105,3 +105,29 @@ function applicationNodes() {
     isPartOf: { "@id": id("website") },
   }));
 }
+
+/** One blog post. The author and publisher point at the person node the root
+    layout already renders, so the post adds no second copy of it. */
+export function articleNode(post: {
+  path: string;
+  headline: string;
+  description: string;
+  published: string;
+  modified: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${abs(post.path)}#article`,
+    mainEntityOfPage: abs(post.path),
+    headline: post.headline,
+    description: post.description,
+    image: [abs("/opengraph-image")],
+    datePublished: post.published,
+    dateModified: post.modified,
+    inLanguage: "en",
+    author: { "@id": id("person") },
+    publisher: { "@id": id("person") },
+    isPartOf: { "@id": id("website") },
+  };
+}

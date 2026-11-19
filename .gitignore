@@ -48,3 +48,7 @@ design/shots/
 
 # Design references copied locally (not shipped)
 .claude/reference/
+
+# Guild working files (briefs, captures)
+.claude/briefs/
+.claude/captures/
