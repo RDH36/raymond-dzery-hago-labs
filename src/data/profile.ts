@@ -10,7 +10,7 @@ export const profile = {
   role: "Full-stack developer & game dev",
   hook: "Building is solved. Taste isn't.",
   intro:
-    "I design, build and ship mobile apps, games and websites. Product, design and engineering, from the first screen to the store listing.",
+    "I design and ship mobile apps, games and websites in the AI era.",
   location: "Antananarivo, Madagascar",
   photo: "/raymond-dzery-hago.jpg",
   email: "contact@dzeryhago.com",
@@ -21,16 +21,16 @@ export const profile = {
 } as const;
 
 export const links: ProfileLink[] = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/raymond-dzery-hago-25013221b/" },
   { label: "GitHub", href: "https://github.com/RDH36" },
   { label: "itch.io", href: "https://rdh36.itch.io/" },
-  { label: "Instagram", href: "https://www.instagram.com/raymonddzeryhago/" },
-  { label: "YouTube", href: "https://www.youtube.com/@rdh2236" },
-  { label: "TikTok", href: "https://www.tiktok.com/@r3d6h" },
   {
     label: "Play Store",
     href: "https://play.google.com/store/apps/developer?id=Raymond+Dzery+Hago",
   },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/raymond-dzery-hago-25013221b/" },
+  { label: "YouTube", href: "https://www.youtube.com/@rdh2236" },
+  { label: "TikTok", href: "https://www.tiktok.com/@r3d6h" },
+  { label: "Instagram", href: "https://www.instagram.com/raymonddzeryhago/" },
 ];
 
 /** Prose rather than a list of names: the brief rules out a stack row, and
@@ -43,20 +43,27 @@ export const stack = {
     TypeScript: "https://www.typescriptlang.org",
     Tailwind: "https://tailwindcss.com",
     Vercel: "https://vercel.com",
+    Cloudflare: "https://www.cloudflare.com",
+    Supabase: "https://supabase.com",
     "React Native": "https://reactnative.dev",
     Expo: "https://expo.dev",
     NativeWind: "https://www.nativewind.dev",
     Unity: "https://unity.com",
     "C#": "https://learn.microsoft.com/dotnet/csharp/",
     Aseprite: "https://www.aseprite.org",
+    WXT: "https://wxt.dev",
+    Remotion: "https://www.remotion.dev",
+    "Claude Code": "https://claude.com/product/claude-code",
     PostHog: "https://posthog.com",
-    Sentry: "https://sentry.io",
   } as Record<string, string>,
   lines: [
-    "Websites in [Next.js] and [TypeScript], styled with [Tailwind] and deployed on [Vercel].",
+    "Websites in [Next.js] and [TypeScript], styled with [Tailwind], deployed on [Vercel] or [Cloudflare], with [Supabase] behind them.",
     "Mobile apps in [React Native] and [Expo], styled with [NativeWind] so the web habits carry over.",
     "Games in [Unity] and [C#], with the pixel art drawn in [Aseprite].",
-    "[PostHog] and [Sentry] in all of them, because shipping without knowing what people do, or what breaks, is guessing.",
+    "Browser extensions with [WXT].",
+    "Videos coded in [Remotion].",
+    "And a team of AI agents ([Claude Code]) that I direct: they write, test and review with me.",
+    "[PostHog] in all of them, because shipping without knowing what people do is guessing.",
   ],
 } as const;
 
@@ -75,7 +82,7 @@ export const story = {
   } as Record<string, string>,
   paragraphs: [
     "I got into computers because of video games. I wanted to know how the thing on the screen was made, and then I wanted to make one myself.",
-    "That curiosity turned into a job. University at [IESTIME] gave me the foundation, the professional training at [Inclusiv Academy] made it solid, and I have been shipping web and mobile products for {years} years since. Today that is at [Athenix Technology], building web, mobile and AI products for their clients. On my own time I keep going back to games: Monster Cannon and Flipia are that itch, pixel art included.",
+    "That curiosity turned into a job. University at [IESTIME] gave me the foundation, the professional training at [Inclusiv Academy] made it solid, and I have been shipping web and mobile products for {years} years since. Today that is at [Athenix Technology], building web, mobile and AI products for their clients. On my own time I keep going back to games: Monster Cannon is that itch, pixel art included.",
     "Everything I build carries a bit of who I am.",
   ],
 } as const;

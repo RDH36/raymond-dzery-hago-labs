@@ -7,22 +7,28 @@ export type Screenshot = {
   height: number;
 };
 
-/** Play Store phone exports are 9:16; the App Store 6.9" ones are taller. */
+/** Play Store phone exports are 9:16; the Hifety captures come from the web. */
 const PLAY_PHONE = { width: 450, height: 800 };
-const APPSTORE_69 = { width: 450, height: 978 };
+const PLAY_TALL = { width: 450, height: 978 };
+const HIFETY_PHONE = { width: 468, height: 1013 };
 
 export type Project = {
-  /** Ties the <details> to its anchor and its aria wiring. */
   slug: string;
+  /** Catalogue number shown beside the row on wide screens. */
+  number: string;
   name: string;
-  /** One factual line, shown while the row is closed. */
+  /** One factual line, kept for search results and structured data. */
   tagline: string;
   thumbnail: string;
-  attributes: string[];
-  /** schema.org applicationCategory — tells Google what kind of app it is. */
-  schemaCategory: "FinanceApplication" | "HealthApplication" | "GameApplication";
+  /** Label / value pairs of the spec list. */
+  facts: [label: string, value: string][];
+  /** schema.org applicationCategory: tells Google what kind of app it is. */
+  schemaCategory: "FinanceApplication" | "LifestyleApplication" | "GameApplication";
   status: "live" | "soon";
-  /** Absent while status is "soon" — the install button appears with it. */
+  /** The filled button: the Play listing or the product's own entry point. */
+  primary: ProjectLink;
+  /** Label of the mobile bottom-bar button while this row is on screen. */
+  barLabel: string;
   playStoreUrl?: string;
   siteUrl?: string;
   extraLinks?: ProjectLink[];
@@ -43,20 +49,34 @@ const shots = (
     ...size,
   }));
 
+const MITSITSY_PLAY =
+  "https://play.google.com/store/apps/details?id=com.rdh36.moneytracking";
+const CANNON_PLAY =
+  "https://play.google.com/store/apps/details?id=com.rdh36.mosntercannon";
+
 export const projects: Project[] = [
   {
     slug: "mitsitsy",
+    number: "01",
     name: "Mitsitsy",
     tagline:
       "Budget and expense tracker built for Madagascar. Log a spend in under ten seconds, and it all works with no connection.",
     thumbnail: "/icons/mitsitsy.png",
-    attributes: ["Android", "Offline", "Ariary, euro, dollar"],
+    facts: [
+      ["Platform", "Android"],
+      ["Works", "Offline"],
+      ["Currency", "Ariary, euro, dollar"],
+    ],
     schemaCategory: "FinanceApplication",
     status: "live",
-    playStoreUrl:
-      "https://play.google.com/store/apps/details?id=com.rdh36.moneytracking",
+    playStoreUrl: MITSITSY_PLAY,
+    primary: { label: "Get it on Google Play", href: MITSITSY_PLAY },
+    barLabel: "Get Mitsitsy",
     siteUrl: "https://mitsitsy.app",
-    extraLinks: [{ label: "Privacy policy", href: "https://mitsitsy.app/privacy" }],
+    extraLinks: [
+      { label: "mitsitsy.app", href: "https://mitsitsy.app" },
+      { label: "Privacy policy", href: "https://mitsitsy.app/privacy" },
+    ],
     about:
       "A budget and expense tracker built for how money actually works in Madagascar. Log a spend in under ten seconds, in ariary, with no connection and no account.",
     highlights: [
@@ -66,93 +86,85 @@ export const projects: Project[] = [
       "Budgets with deadlines, and charts to see where it went.",
     ],
     screenshots: shots("mitsitsy", PLAY_PHONE, [
-      ["home-balance", "Mitsitsy home screen showing the net balance and monthly totals"],
-      ["log-expense-in-ten-seconds", "Recording an expense in a few taps"],
-      ["budgets", "Budgets with progress bars and deadlines"],
-      ["spending-reports", "Spending reports as pie and bar charts"],
+      ["01-home", "Mitsitsy home screen with the net balance, accounts and budgets"],
+      ["04-scan", "Scanning a receipt to add an expense"],
+      ["06-reports", "Spending reports with income and expense trends"],
     ]),
   },
   {
-    slug: "clearway",
-    name: "Clearway",
+    slug: "hifety",
+    number: "02",
+    name: "Hifety",
     tagline:
-      "A calm companion for quitting vaping. Progress, money saved and guided breathing for the hard moments. No lectures.",
-    thumbnail: "/icons/clearway.png",
-    attributes: ["Android", "No account", "Data stays local"],
-    schemaCategory: "HealthApplication",
+      "Your animated invitation, ready to share in minutes. Weddings, traditional engagements (vodiondry), cards and wishes.",
+    thumbnail: "/icons/hifety.png",
+    facts: [
+      ["Platform", "Web"],
+      ["Languages", "French and Malagasy"],
+      ["Payment", "Mobile Money"],
+    ],
+    schemaCategory: "LifestyleApplication",
     status: "live",
-    playStoreUrl:
-      "https://play.google.com/store/apps/details?id=com.rdh36.clearway",
-    siteUrl: "https://clearway.dzeryhago.com",
-    extraLinks: [
-      { label: "Privacy policy", href: "https://clearway.dzeryhago.com/privacy" },
-    ],
+    primary: { label: "Create a card", href: "https://hifety.com/creer" },
+    barLabel: "Create a card",
+    siteUrl: "https://hifety.com",
+    extraLinks: [{ label: "hifety.com", href: "https://hifety.com" }],
     about:
-      "A calm companion for quitting vaping, not a coach shouting at you. It counts the days you have cleared and the money back in your pocket, and gives you something to do when a craving hits.",
+      "An invitation that comes out of its envelope, animated, for the way celebrations happen in Madagascar. Pick a template, fill it in, and share one link.",
     highlights: [
-      "Guided 4-7-8 breathing for the hard moments.",
-      "Money saved, counted as it goes.",
-      "A home screen widget, so progress shows without opening it.",
-      "No account, and the data stays on the phone.",
+      "A template for every occasion: weddings, vodiondry, cards and wishes.",
+      "It counts down the days and collects replies.",
+      "In French and Malagasy.",
+      "Pay with Mobile Money.",
     ],
-    screenshots: shots("clearway", APPSTORE_69, [
-      ["days-clear", "Days cleared, with the haze lifting as progress builds"],
-      ["craving-guided-breathing", "The craving screen and its guided breathing session"],
-      ["recovery-milestones", "Recovery milestones over time"],
-      ["home-screen-widget", "The home screen widget showing progress"],
-    ]),
-  },
-  {
-    slug: "flipia",
-    name: "Flipia",
-    tagline:
-      "Memory game turned duel. Flip the cards, find the pairs before your opponent, and trigger powers to break their rhythm.",
-    thumbnail: "/icons/flipia.png",
-    attributes: ["Android", "Solo and duels", "Leaderboard"],
-    schemaCategory: "GameApplication",
-    status: "live",
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.rdh36.flipia",
-    siteUrl: "https://flipia.dzeryhago.com",
-    about:
-      "A memory game turned into a duel. Match the pairs faster than your opponent, and spend powers to scramble the board when you fall behind.",
-    highlights: [
-      "Duels against other players or bots.",
-      "Powers that change the board mid-game.",
-      "Leaderboard by XP, win rate and rank.",
-      "Several modes, offline play included.",
-    ],
-    screenshots: shots("flipia", PLAY_PHONE, [
-      ["memory-duel", "A duel in progress, two players racing for pairs"],
-      ["powers", "Powers being triggered on the board"],
-      ["game-modes", "The game modes on offer"],
-      ["play-with-friends", "Playing against friends"],
+    screenshots: shots("hifety", HIFETY_PHONE, [
+      ["accueil", "Hifety: an invitation coming out of its envelope"],
+      ["modeles", "An invitation template for every occasion"],
+      ["vivent", "An invitation that counts down the days and collects replies"],
     ]),
   },
   {
     slug: "monster-cannon",
+    number: "03",
     name: "Monster Cannon",
     tagline:
-      "Arcade game. Load the cannon, set the angle, let the bounces do the rest. Endless waves, five bosses, roguelike upgrades drawn between rounds.",
+      "Arcade game. Load the cannon, set the angle, let the bounces do the rest.",
     thumbnail: "/icons/monster-cannon.png",
-    attributes: ["Android", "Offline", "Free"],
+    facts: [
+      ["Platform", "Android"],
+      ["Works", "Offline"],
+      ["Price", "Free"],
+    ],
     schemaCategory: "GameApplication",
     status: "live",
-    playStoreUrl:
-      "https://play.google.com/store/apps/details?id=com.rdh36.mosntercannon",
+    playStoreUrl: CANNON_PLAY,
+    primary: { label: "Get it on Google Play", href: CANNON_PLAY },
+    barLabel: "Get Monster Cannon",
     siteUrl: "https://monstercannon.dzeryhago.com",
+    extraLinks: [
+      {
+        label: "monstercannon.dzeryhago.com",
+        href: "https://monstercannon.dzeryhago.com",
+      },
+    ],
     about:
-      "Aim, bounce, destroy. You load the cannon and set the angle; the trajectory line shows where the shot lands after the bounces. Waves never stop, and every round hands you a choice of upgrades.",
+      "Arcade game. Load the cannon, set the angle, let the bounces do the rest. Endless waves, five bosses, roguelike upgrades drawn between rounds.",
     highlights: [
       "Five bosses, each with a mechanic of its own.",
       "Roguelike upgrades drawn between waves.",
       "Permanent upgrades bought with gold in the lab.",
       "Free to play, with ads. No in-app purchases.",
     ],
-    screenshots: shots("monster-cannon", APPSTORE_69, [
+    screenshots: shots("monster-cannon", PLAY_TALL, [
       ["aiming-the-cannon", "The cannon aiming at an incoming wave of monsters"],
       ["gameplay-bounces", "Gameplay with the trajectory line and bounces"],
       ["boss-fight", "A boss fight"],
-      ["cannon-collection", "The cannon collection"],
     ]),
   },
+];
+
+/** Smaller things, linked rather than listed. */
+export const alsoLinks: ProjectLink[] = [
+  { label: "Lorebox", href: "https://lorebox.dzeryhago.com" },
+  { label: "Six small games", href: "https://rdh36.itch.io/" },
 ];

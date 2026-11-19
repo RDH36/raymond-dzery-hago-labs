@@ -71,13 +71,14 @@ function personNode() {
 /** Released or not — an unreleased app still deserves to be understood. */
 function applicationNodes() {
   return projects.map((project) => ({
-    "@type": "SoftwareApplication",
+    /* Only what is on the Play Store is an Android app; the rest is a website. */
+    "@type": project.playStoreUrl ? "SoftwareApplication" : "WebApplication",
     "@id": id(project.slug),
     name: project.name,
     description: project.about,
     abstract: project.tagline,
     applicationCategory: project.schemaCategory,
-    operatingSystem: "Android",
+    operatingSystem: project.playStoreUrl ? "Android" : "Web",
     inLanguage: "en",
     image: abs(project.thumbnail),
     screenshot: project.screenshots.map((shot) => abs(shot.src)),
@@ -85,8 +86,9 @@ function applicationNodes() {
     url: project.playStoreUrl ?? project.siteUrl ?? profile.siteUrl,
     ...(project.playStoreUrl ? { installUrl: project.playStoreUrl } : {}),
     /* A free offer is what makes Google render a rich result rather than a
-       plain link. Only on released apps — nothing is on sale until then. */
-    ...(project.status === "live"
+       plain link. Only on released Play Store apps: a paid web product must
+       not be declared free. */
+    ...(project.status === "live" && project.playStoreUrl
       ? {
           offers: {
             "@type": "Offer",

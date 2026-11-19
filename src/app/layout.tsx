@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, IBM_Plex_Sans } from "next/font/google";
+import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 
 import { PostHogProvider } from "@/components/analytics/PostHogProvider";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
@@ -15,8 +15,16 @@ const plex = IBM_Plex_Sans({
   variable: "--font-plex",
 });
 
-/* The display face of Clearway's own site — the portfolio inherits the type
-   voice of the products it lists. */
+/* Mono labels and catalogue numbers on the home page. */
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-plex-mono",
+});
+
+/* The display face: the portfolio inherits the type voice of the products it
+   lists. */
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   weight: ["600", "700"],
@@ -25,7 +33,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 const description =
-  "Raymond Dzery Hago designs, builds and ships mobile apps, games and websites from Antananarivo, Madagascar. Mitsitsy, Clearway, Flipia and Monster Cannon.";
+  `Raymond Dzery Hago: ${profile.intro} From Antananarivo, Madagascar. Mitsitsy, Hifety and Monster Cannon.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
@@ -79,7 +87,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${plex.variable} ${bricolage.variable}`}
+      className={`${plex.variable} ${plexMono.variable} ${bricolage.variable}`}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
