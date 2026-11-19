@@ -14,29 +14,31 @@ export const metadata = blogMetadata("/blog", "website", title, description);
 
 export default function BlogPage() {
   return (
-    <BlogShell>
-      <header className="flex flex-col gap-3">
-        <h1 className="font-display text-[21px] font-semibold text-ink">Blog</h1>
-        <p className="text-[17px] leading-[1.7] text-body text-pretty">
-          What I&apos;m building, what breaks, and the real numbers.
-        </p>
-      </header>
-      <Link
-        href="/blog/how-i-built-my-guild"
-        className="group -mx-3 flex flex-col gap-1.5 rounded-[10px] px-3 py-3 hover:bg-hover"
-      >
-        <span className="text-[14px] text-muted">November 2026 · 3 min read</span>
-        <h2 className="font-display text-[19px] font-semibold text-ink underline-offset-[3px] decoration-seal group-hover:underline">
-          How I built my Guild
-        </h2>
-        <p className="text-[16px] leading-[1.55] text-slate text-pretty">
-          Ten AI agents, each with a name and one job. What they do, what broke,
-          and why I still make the decisions.
-        </p>
-        <span className="text-[15px] text-slate underline decoration-hairline underline-offset-[3px] group-hover:text-ink group-hover:decoration-seal">
-          Read the article <span aria-hidden="true">→</span>
-        </span>
-      </Link>
+    <BlogShell page="blog">
+      <div className="col">
+        <header className="list-h">
+          <h1>Blog</h1>
+          <p className="intro">What I&apos;m building, what breaks, and the real numbers.</p>
+        </header>
+        <ul className="entries">
+          <li className="entry">
+            <p className="lbl">
+              <time dateTime="2026-11-19">19 November 2026</time> · 7 min read
+            </p>
+            <h2>
+              <Link href="/blog/how-i-built-my-guild">How I built my Guild, a team of AI agents</Link>
+            </h2>
+            <p className="desc">
+              Eleven AI agents with a name and one job each, running in Claude Code between my PC
+              and a small server. What each one does, how a task moves through the team, and a
+              short tutorial to build your own.
+            </p>
+            <p className="more">
+              Read the article <span aria-hidden="true">→</span>
+            </p>
+          </li>
+        </ul>
+      </div>
     </BlogShell>
   );
 }

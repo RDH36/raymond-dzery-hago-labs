@@ -21,6 +21,8 @@ export function PostHogProvider() {
       person_profiles: "always",
       capture_pageview: true,
       capture_pageleave: true,
+      // Session replay is off for this site (the PostHog project is shared with Hifety).
+      disable_session_recording: true,
     });
 
     const onClick = (event: MouseEvent) => {
