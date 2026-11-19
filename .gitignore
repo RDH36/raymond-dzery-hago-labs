@@ -45,3 +45,6 @@ next-env.d.ts
 # image crops (both regenerable from design/build.py and screenshoot-app).
 design/portfolio-dzeryhago-directions.html
 design/shots/
+
+# Design references copied locally (not shipped)
+.claude/reference/

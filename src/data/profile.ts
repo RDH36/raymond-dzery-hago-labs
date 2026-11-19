@@ -10,7 +10,7 @@ export const profile = {
   role: "Full-stack developer & game dev",
   hook: "Building is solved. Taste isn't.",
   intro:
-    "I design, build and ship mobile apps, games and websites. Product, design and engineering, from the first screen to the store listing.",
+    "I design and ship mobile apps, games and websites in the AI era.",
   location: "Antananarivo, Madagascar",
   photo: "/raymond-dzery-hago.jpg",
   email: "contact@dzeryhago.com",
@@ -21,16 +21,16 @@ export const profile = {
 } as const;
 
 export const links: ProfileLink[] = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/raymond-dzery-hago-25013221b/" },
   { label: "GitHub", href: "https://github.com/RDH36" },
   { label: "itch.io", href: "https://rdh36.itch.io/" },
-  { label: "Instagram", href: "https://www.instagram.com/raymonddzeryhago/" },
-  { label: "YouTube", href: "https://www.youtube.com/@rdh2236" },
-  { label: "TikTok", href: "https://www.tiktok.com/@r3d6h" },
   {
     label: "Play Store",
     href: "https://play.google.com/store/apps/developer?id=Raymond+Dzery+Hago",
   },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/raymond-dzery-hago-25013221b/" },
+  { label: "YouTube", href: "https://www.youtube.com/@rdh2236" },
+  { label: "TikTok", href: "https://www.tiktok.com/@r3d6h" },
+  { label: "Instagram", href: "https://www.instagram.com/raymonddzeryhago/" },
 ];
 
 /** Prose rather than a list of names: the brief rules out a stack row, and

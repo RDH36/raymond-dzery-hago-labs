@@ -1,43 +1,39 @@
-import Link from "next/link";
-
-import { Footer } from "@/components/Footer";
-import { Profile } from "@/components/profile/Profile";
-import { ProjectList } from "@/components/projects/ProjectList";
+import { Also } from "@/components/home/Also";
+import { Header } from "@/components/home/Header";
+import { HomeFooter } from "@/components/home/HomeFooter";
+import { Hero } from "@/components/home/Hero";
+import { MobileBar } from "@/components/home/MobileBar";
+import { ProjectSection } from "@/components/home/ProjectSection";
 import { Stack } from "@/components/story/Stack";
 import { Story } from "@/components/story/Story";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { projects } from "@/data/projects";
+import "./home.css";
 
 /* The footer year is rendered at build time, so the page re-generates once a
    day. Without this it would still read 2026 next January. */
 export const revalidate = 86400;
 
-function Rule() {
-  return <hr className="h-px w-full border-0 bg-rule" />;
-}
-
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-[680px] px-6 pb-14 pt-6 sm:px-10">
-      <div className="flex items-center justify-end gap-4">
-        <Link
-          href="/blog"
-          className="text-[15px] text-slate underline decoration-hairline underline-offset-[3px] hover:text-ink hover:decoration-seal"
-        >
-          Blog
-        </Link>
-        <ThemeToggle />
-      </div>
-      <main className="flex flex-col gap-10 pt-4">
-        <Profile />
-        <Rule />
-        <ProjectList />
-        <Rule />
-        <Stack />
-        <Rule />
-        <Story />
-        <Rule />
-        <Footer />
+    <div className="p1">
+      <Header />
+      <main id="top">
+        <Hero />
+        <div className="wrap" id="work">
+          <div className="head">
+            <p className="lbl">Things I build</p>
+            <p className="lbl">{String(projects.length).padStart(2, "0")}</p>
+          </div>
+          {projects.map((project) => (
+            <ProjectSection key={project.slug} project={project} />
+          ))}
+          <Also />
+          <Stack />
+          <Story />
+        </div>
       </main>
+      <HomeFooter />
+      <MobileBar />
     </div>
   );
 }
