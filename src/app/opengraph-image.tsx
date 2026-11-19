@@ -3,19 +3,27 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 import { profile } from "@/data/profile";
-import { projects } from "@/data/projects";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = profile.pageTitle;
+export const alt = `${profile.name}: ${profile.intro}`;
 
-const asDataUri = (publicPath: string) => {
-  const file = readFileSync(join(process.cwd(), "public", publicPath));
-  return `data:image/png;base64,${file.toString("base64")}`;
-};
+const publicFile = (path: string) =>
+  readFileSync(join(process.cwd(), "public", path));
+const dataUri = (path: string, mime: string) =>
+  `data:${mime};base64,${publicFile(path).toString("base64")}`;
 
+/* P1 palette (light): paper, ink and the teal of the home-page hero. */
+const PAPER = "#F5F7F7";
+const INK = "#0E1A1E";
+const TEAL = "#0A6C84";
+const BODY = "#33454A";
+
+/* Everything sits in a centred column about 700 px wide, so a square crop
+   (Discord, WhatsApp, some feeds) keeps the name and the line. */
 export default async function Image() {
-  const icons = projects.map((project) => asDataUri(project.thumbnail));
+  const fiole = dataUri("og/fiole.png", "image/png");
+  const photo = dataUri("raymond-dzery-hago.jpg", "image/jpeg");
 
   return new ImageResponse(
     (
@@ -25,34 +33,69 @@ export default async function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
-          background: "#FAFAF8",
-          padding: "72px 80px",
+          alignItems: "center",
+          justifyContent: "center",
+          background: PAPER,
+          fontFamily: "Plex",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div style={{ fontSize: 60, fontWeight: 600, color: "#16181C" }}>
-            {profile.name}
-          </div>
-          <div style={{ fontSize: 36, color: "#33373D" }}>{profile.hook}</div>
-          <div style={{ fontSize: 26, color: "#8B9098" }}>
-            {profile.location}
-          </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+          <img src={fiole} alt="" width={88} height={150} />
+          <img
+            src={photo}
+            alt=""
+            width={130}
+            height={130}
+            style={{ borderRadius: 30, border: "2px solid #D9E1E3" }}
+          />
         </div>
-        <div style={{ display: "flex", gap: 24 }}>
-          {icons.map((icon) => (
-            <img
-              key={icon.slice(-24)}
-              src={icon}
-              alt=""
-              width={104}
-              height={104}
-              style={{ borderRadius: 24 }}
-            />
-          ))}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginTop: 26,
+            fontSize: 112,
+            fontWeight: 600,
+            lineHeight: 1,
+            letterSpacing: -4,
+          }}
+        >
+          <div style={{ color: INK }}>Raymond</div>
+          <div style={{ color: TEAL }}>Dzery Hago</div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            marginTop: 26,
+            width: 620,
+            textAlign: "center",
+            justifyContent: "center",
+            fontSize: 35,
+            lineHeight: 1.25,
+            color: BODY,
+          }}
+        >
+          {profile.intro}
         </div>
       </div>
     ),
-    size,
+    {
+      ...size,
+      fonts: [
+        {
+          name: "Plex",
+          data: publicFile("og/IBMPlexSans-SemiBold.ttf"),
+          weight: 600,
+          style: "normal",
+        },
+        {
+          name: "Plex",
+          data: publicFile("og/IBMPlexSans-Regular.ttf"),
+          weight: 400,
+          style: "normal",
+        },
+      ],
+    },
   );
 }
