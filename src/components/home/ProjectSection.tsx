@@ -15,7 +15,7 @@ export function ProjectSection({ project: p }: { project: Project }) {
       <p className="no">{p.number}</p>
       <div className="copy">
         <div className="name">
-          <Image src={p.thumbnail} alt="" width={96} height={96} />
+          <Image src={p.thumbnail} alt="" width={96} height={96} loading="eager" />
           <h2>{p.name}</h2>
         </div>
         <p className="sum">{p.about}</p>
